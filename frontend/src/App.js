@@ -4,27 +4,20 @@ import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Journey from './components/pages/Journey';
 import {Routes, Route} from 'react-router-dom';
+import './App.css';
 
 
 function App() {
   return (
     <>
       <Nav />
-      <div className='container'>
+      <main className='App'>
         <Routes>
-            <Route path = "/" element={<Home />}>
-                {/*public routes */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/journey" element={<Journey />} />
-
-                {/*we want to protect these routes*/}
-                <Route path="/" element={<Home />} />
-                
-                {/* catch all*/}
-                {/*<Route path="*" element={<Missing />} /> */}
-            </Route>
+          <Route path="/" element = {<Home />} />
+          <Route path="/journey" element = {<Journey />} />
+          <Route path="/login" element = {<Login />} />
         </Routes>
-      </div>
+      </main>
     </>
   );
 }
