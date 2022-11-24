@@ -1,24 +1,25 @@
 import React from 'react';
-import Nav from './components/navigation/Nav';
-import Login from './components/pages/Login';
-import Home from './components/pages/Home';
-import Journey from './components/pages/Journey';
-import {Routes, Route} from 'react-router-dom';
 import './App.css';
-
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import Login from './components/login_component';
+import Signup from './components/signup_component';
 
 function App() {
   return (
-    <>
-      <Nav />
-      <main className='App'>
-        <Routes>
-          <Route path="/" element = {<Home />} />
-          <Route path="/journey" element = {<Journey />} />
-          <Route path="/login" element = {<Login />} />
-        </Routes>
-      </main>
-    </>
+    <Router>
+      <div className = "App">
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Routes>
+              <Route exact path ="/" element={<Login/>}/>
+              <Route path="/sign-in" element={<Login/>}/>
+              <Route path="/sign-up" element={<Signup/>}/>
+              <Route path="/journey" element={<Login/>}/>
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 
