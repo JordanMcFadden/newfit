@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-import { NavItems } from './NavItems';
+import '../navigation/Nav.css';
 
 class Nav extends Component {
     state = { clicked: false }
@@ -11,21 +11,24 @@ class Nav extends Component {
 
     render() {
         return(
-            <nav className="NavbarItems">
-                <Link className="navbar-logo" to="/">FitForYou<i className="fab fa-foursquare"></i></Link>
-                <div className="nav-icon"></div>
-                 <ul className ={this.state.clicked ? 'nav-icon active' : 'nav-icon'}>
-                    {NavItems.map((item, index) => {
-                     return (
-                        <li key ={index}>
-                             <Link className={item.cName} to = {item.url}>
-                                {item.title} 
-                            </Link>
-                         </li>
-                        )
-                    })}
-                </ul>
+        <div className="sum">
+            <div className ="logo">
+                FitForYou
+            </div>
+            <nav className="item">
+            <ul className = "nav-ul">
+                <li>
+                    <Link className="nav-link" to="/login">Login</Link>
+                </li>  
+                <li>
+                    <Link className="nav-link" to="/journey">Journey</Link>
+                </li>  
+                <li>
+                    <Link className="nav-logo" to="/">Home</Link>
+                </li>
+            </ul>  
             </nav>
+        </div>
         )
     }
 }
