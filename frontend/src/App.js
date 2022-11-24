@@ -1,23 +1,33 @@
-import './App.css';
-import Nav from './components/Nav';
-import Home from './components/Home';
-import Tweet from './components/Tweet';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import React from 'react';
+import Nav from './components/navigation/Nav';
+import Login from './components/pages/Login';
+import Home from './components/pages/Home';
+import Journey from './components/pages/Journey';
+import {Routes, Route} from 'react-router-dom';
+
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header className = "App-header">
-        <Nav />
-            <Routes>
-              <Route path="/" exact component={Home} />
-              <Route path="/tweets" exact component={Tweet} />
-            </Routes>
-        </header>
+    <>
+      <Nav />
+      <div className='container'>
+        <Routes>
+            <Route path = "/" element={<Home />}>
+                {/*public routes */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/journey" element={<Journey />} />
+
+                {/*we want to protect these routes*/}
+                <Route path="/" element={<Home />} />
+                
+                {/* catch all*/}
+                {/*<Route path="*" element={<Missing />} /> */}
+            </Route>
+        </Routes>
       </div>
-    </Router>
+    </>
   );
 }
 
 export default App;
+
