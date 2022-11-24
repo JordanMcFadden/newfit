@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
+    "server": "nodemon Server.js",
     "client": "npm run start --prefix ../frontend",
     "dev": "concurrently --kill-others-on-fail \"npm run server\"\"npm run client\""
   },
