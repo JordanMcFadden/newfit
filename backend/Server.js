@@ -1,28 +1,37 @@
-const express = require('express');
-const app=express();
-const bodyParser = require('body-parser');
-const routesHandler = require('./routes/Handler.js');
-const mongoose = require('mongoose');
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+app.use(express.json())
 
-require('dotenv/config');
+const mongoUrl=
+"mongodb+srv://Maine:Maine@fitforyou.oijsriz.mongodb.net/test";
 
+mongoose.connect(mongoUrl, {
+    useNewUrlParser: true,
+}).then(() => console.log("database connected"))
+.catch((e)=>console.log(e));
 
-
-//DB connection
-mongoose.connect(process.env.DB_URI, {useNewUrlparser:true, useUnifiedTopology:true})
-.then( ()=> {
-    console.log('DB connected');
+app.listen(4000, ()=> {
+    console.log("Server running on port 4000");
 })
-.catch( (err) => {
-    console.log(err);
+
+app.post("/post",async(req, res) => {
+    console.log(req.body);
+    const {data}=req.body;
+
+    try 
+    {
+        if(data=="jor")
+        {
+            res.send({status:"ok"})
+        }
+        else 
+        {
+            res.send({status: "user not found"})
+        }
+    }
+    catch(error) 
+    {
+        res.send({status:"something went wrong try again"})
+    }
 });
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log('Server is running on port 4000')
-});
-
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
-app.use('/app', routesHandler);
-
