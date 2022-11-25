@@ -6,4 +6,4 @@ function login_component() {
   )
 }
 
-export default login_component
+export default login_component;
