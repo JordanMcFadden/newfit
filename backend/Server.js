@@ -1,17 +1,33 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cor = requrie('cors');
+const userRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
+
 app.use(express.json())
 
+//database connection
 const mongoUrl=
 "mongodb+srv://Maine:Maine@fitforyou.oijsriz.mongodb.net/test";
 
+
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
-}).then(() => console.log("database connected"))
+}).then(() => console.log("Database connected"))
 .catch((e)=>console.log(e));
 
-app.listen(4000, ()=> {
+// middlewares
+app.use(express.json());
+app.use(cors());
+
+//routes
+app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
+
+//server connection
+const port = process.env.PORT || 4000;
+app.listen(port, ()=> {
     console.log("Server running on port 4000");
 })
 
