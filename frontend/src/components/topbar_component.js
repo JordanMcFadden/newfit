@@ -10,11 +10,14 @@ export default function Topbar(props) {
     isauth = true;
   }
 
-  
+
   return (
     <>
-        <div className={styles.topbar}>
-          <div className={styles.topbar_phone}><a className={styles.topbar_links} href="tel:318-200-9883">(318)-200-9883</a><a className={styles.topbar_links} href="mailto:fit4you@gmail.com">fit4you@gmail.com</a></div>
+      <div className={styles.topbar}>
+        <div className={styles.topbar_phone}>
+          <a className={styles.topbar_links} href="tel:318-200-9883">(318)-200-9883</a>
+          <a className={styles.topbar_links} href="mailto:fit4you@gmail.com">fit4you@gmail.com</a>
+        </div>
         <div className={styles.topbar_social}>
 
           {isauth === true ? (
@@ -26,7 +29,7 @@ export default function Topbar(props) {
                 Logout
               </Link>
             </>
-            
+
           ) : (
 
             <>
@@ -50,6 +53,50 @@ export default function Topbar(props) {
           </a>
         </div>
       </div>
+
+      <nav className={styles.navbar}>
+        <div className={styles.navbar_logo}>FitForYou<i className="fab fa-foursquare"></i>
+          <div className={styles.navbar_groups}>
+            <ul className={styles.navbar_groups}>
+              <li>
+                  <Link className={styles.navbar_links} to="/shoulders">
+                    Shoulders
+                  </Link>
+              </li>
+              <li>
+                  <Link className={styles.navbar_links} to="/arms">
+                    Arms
+                  </Link>
+              </li>
+              <li>
+              <Link className={styles.navbar_links} to="/chest">
+                    Chest
+                  </Link>
+              </li>
+              <li>
+                  <Link className={styles.navbar_links} to="/back">
+                    Back
+                  </Link>
+              </li>
+              <li>
+                  <Link className={styles.navbar_links} to="/legs">
+                    Legs
+                  </Link>
+              </li>
+              <li>
+                  <Link className={styles.navbar_links} to="/abs">
+                    Abs
+                  </Link>
+              </li>
+              <li>
+                  <Link className={styles.navbar_links} to="/">
+                    Home
+                  </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </>
   );
 } 

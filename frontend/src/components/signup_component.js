@@ -72,7 +72,7 @@ const Signup  = () =>
             required
             className={styles.input}
           />
-          <button type="submit" className={styles.tan_btn}>
+          <button type="submit" className={styles.grey_btn}>
             Sign up
           </button>
           </form>

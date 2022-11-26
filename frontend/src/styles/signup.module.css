@@ -1,7 +1,7 @@
 .signup_container {
     width: 100%;
     min-height: 100vh;
-    background-color: whitesmoke;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #deb88d;
+    background-color: #1E1E1E;
     border-radius: 10px;
     box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
 		        0px 3px 4px 0px rgb(0 0 0 / 14%),
@@ -71,7 +71,7 @@
     font-size: 14px;
 }
 
-.white_btn, .tan_btn {
+.white_btn, .grey_btn {
     border: none;
     outline: none;
     padding: 12px 0;
@@ -83,7 +83,7 @@
     cursor: pointer;
 }
 
-.tan_btn {
-    background-color: #deb88d;
+.grey_btn {
+    background-color: red;
     margin: 10px;
 }

@@ -62,3 +62,47 @@
         justify-content: center;
     }
 }
+
+/* This is the end of the top bar and start of the navbar */
+
+.navbar{
+   background-color: #1E1E1E;
+   z-index: 1;
+   width: 100%;
+}
+
+.navbar_logo{
+    color: red;
+    cursor: pointer;
+    font-size: 17px;
+    margin-left: 23px;
+}
+
+.fa-foursquare{
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.navbar_groups{
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    list-style: none;
+    grid-gap: 10px;
+    width: 80vw;
+    justify-content: flex-end;
+    margin-right: 20rem;
+}
+
+.navbar_links{
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.navbar_links:hover {
+    background-color: #a9a9a9;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+
