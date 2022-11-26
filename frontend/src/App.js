@@ -5,7 +5,7 @@ import Signin from './components/login_component';
 import Signup from './components/signup_component';
 import Home from './components/home_component';
 import Journey from './components/journey_component';
-import Nav from './components/navigation_component';
+import Topbar from './components/topbar_component';
 import Personalize from './components/getstarted_component';
 
 
@@ -14,8 +14,8 @@ function App() {
     <Router>
       <div className = "App">
         <div className="auth-wrapper">
+        <Topbar />
           <div className="auth-inner">
-            <Nav />
             <Routes>
               <Route exact path ="/" element={<Home />}/>
               <Route path="/get-started" element={<Personalize/>} />
