@@ -13,7 +13,7 @@ function App() {
     <Router>
       <div className = "App">
         <div className="auth-wrapper">
-          <Topbar />
+           <Topbar /> 
           <div className="auth-inner">
             <Routes>
               <Route exact path ="/" element={<Home />}/>

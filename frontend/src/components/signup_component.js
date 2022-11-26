@@ -62,8 +62,7 @@ const Signup  = () =>
               value={data.email}
               required
               className={styles.input}
-            />
-            <input
+            /><input
             type="password"
             placeholder="Password"
             name='password'
@@ -72,7 +71,7 @@ const Signup  = () =>
             required
             className={styles.input}
           />
-          <button type="submit" className={styles.grey_btn}>
+          <button type="submit" className={styles.tan_btn}>
             Sign up
           </button>
           </form>
