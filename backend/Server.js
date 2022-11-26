@@ -1,21 +1,15 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
-const cor = requrie('cors');
+const connection = require("./database")
+const cors = require('cors');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 
 app.use(express.json())
 
 //database connection
-const mongoUrl=
-"mongodb+srv://Maine:Maine@fitforyou.oijsriz.mongodb.net/test";
-
-
-mongoose.connect(mongoUrl, {
-    useNewUrlParser: true,
-}).then(() => console.log("Database connected"))
-.catch((e)=>console.log(e));
+connection();
 
 // middlewares
 app.use(express.json());
