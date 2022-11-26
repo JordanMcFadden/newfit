@@ -1,0 +1,64 @@
+#root
+{
+    min-width: 375px;
+}
+
+.topbar
+{
+    height: 1.9rem;
+    background-color: #1E1E1E;
+    display: flex;
+    color: white;
+    width: 100%;
+    /* position: fixed; */
+    z-index: 1;
+    padding: 0.4rem;
+}
+
+.topbar_phone
+{
+    font-size: 0.8rem;
+    width: 40%;
+}
+
+.topbar_links
+{
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.topbar_links:hover
+{
+    color: #FF5656;
+}
+
+.topbar_social
+{
+    font-size: 0.8rem;
+    width: 60%;
+    text-align: end;
+}
+.topbar_social img
+{
+    height: 1rem;
+    margin-right: 1rem;
+}
+
+
+@media (max-width: 768px) 
+{
+    .topbar_phone
+    {
+        display: none;
+    }
+    .topbar_social
+    {
+        width: 100%;
+    }
+    .item
+    {
+        text-align: center;
+        justify-content: center;
+    }
+}
