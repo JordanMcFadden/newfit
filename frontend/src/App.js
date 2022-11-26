@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import Signin from './components/login_component';
 import Signup from './components/signup_component';
 import Home from './components/home_component';
@@ -10,7 +10,6 @@ import Personalize from './components/getstarted_component';
 
 function App() {
   return (
-    <Router>
       <div className = "App">
         <div className="auth-wrapper">
            <Topbar /> 
@@ -24,7 +23,6 @@ function App() {
           </div>
         </div>
       </div>
-    </Router>
   );
 }
 
