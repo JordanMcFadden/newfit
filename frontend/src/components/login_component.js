@@ -44,7 +44,7 @@ const Signin  = () =>
               required
               className={styles.input}
             />
-            <button type="submit" className={styles.tan_btn}>
+            <button type="submit" className={styles.pink_btn}>
               Sign in
             </button>
           </form>

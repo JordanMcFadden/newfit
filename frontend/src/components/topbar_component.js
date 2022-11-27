@@ -59,33 +59,18 @@ export default function Topbar(props) {
           <div className={styles.navbar_groups}>
             <ul className={styles.navbar_groups}>
               <li>
-                  <Link className={styles.navbar_links} to="/shoulders">
-                    Shoulders
-                  </Link>
-              </li>
-              <li>
-                  <Link className={styles.navbar_links} to="/arms">
-                    Arms
+                  <Link className={styles.navbar_links} to="/workouts">
+                    Create Workout
                   </Link>
               </li>
               <li>
               <Link className={styles.navbar_links} to="/chest">
-                    Chest
+                    Your Exercises
                   </Link>
               </li>
               <li>
-                  <Link className={styles.navbar_links} to="/back">
-                    Back
-                  </Link>
-              </li>
-              <li>
-                  <Link className={styles.navbar_links} to="/legs">
-                    Legs
-                  </Link>
-              </li>
-              <li>
-                  <Link className={styles.navbar_links} to="/abs">
-                    Abs
+                  <Link className={styles.navbar_links} to="/records">
+                    Records
                   </Link>
               </li>
               <li>

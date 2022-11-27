@@ -1,11 +1,13 @@
 require('dotenv').config();
 require('express-async-error')
 const express = require("express");
-const app = express();
 const connection = require("./database")
 const cors = require('cors');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
+const exerciseRoutes = require('./routes/exercise');
+const app = express();
+
 
 
 //database connection
@@ -18,6 +20,7 @@ app.use(cors());
 //routes
 app.use('/api/users', userRoutes);
 app.use('/api/sign-in', authRoutes);
+app.use('/api/exercises', exerciseRoutes);
 
 //server connection
 const port = process.env.PORT || 4000;
