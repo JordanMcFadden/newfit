@@ -16,10 +16,17 @@ router.post("/",async(req,res) => {
         }
         //authorization/password hashing
         const salt = await bcrypt.genSalt(Number(process.env.Salt));
-        const hashPassword = await bycrypt.hasj(req.body.password, salt);
+        const hashPassword = await bcrypt.hash(req.body.password, salt);
         //user doesn't exist creates user
-        await new User({...req.body, password: hashPassword}).save();
-        res.status(201).send({message:'User created successfully'})
+        let newUser = await new User({
+            ...req.body,
+            password: hashPassword
+        }).save();
+
+        newUser.password = undefined;
+        newUser._v = undefined;
+
+        res.status(201).send({data: newUser, message:'User created successfully'})
 
     } catch (error) {
         res.status(500).send({message: 'Internal server error' });
