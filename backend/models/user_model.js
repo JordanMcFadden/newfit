@@ -8,13 +8,13 @@ const userSchema = new mongoose.Schema({
     lastName: {type: String, required: true},
     email: {type: String, required: true},
     password: {type: String, required: true},
-    records: {type: String, required: true},
-    workouts: {type: String, required: true},
-    isAdmin: {type: Boolean, default: false}
+    records: {type: [String], default: []},
+    workouts: {type: [String], default:[]},
+    isAdmin: {type: Boolean, default: false},
 })
 
-userSchema.method().generateAuthToken = function() {
-    const token = jwt.sign({_id:this_id, name: this.name, isAdmin: this.isAdmin}, 
+userSchema.methods.generateAuthToken = function() {
+    const token = jwt.sign({_id:this._id, firstName: this.firstName, isAdmin: this.isAdmin}, 
     process.env.JWTPRIVATEKEY, {expiresIn:'7d'});
     return token
 };

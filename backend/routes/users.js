@@ -3,12 +3,6 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
 router.post("/",async(req,res) => {
-    try {
-        const { error } = validate(req.body);
-        //if error occurs
-        if(error){
-            return res.status(400).send({message: error.details[0].message});
-        }
         const user = await User.findOne({email: req.body.email});
         //if that user already exists
         if(user){
@@ -27,10 +21,6 @@ router.post("/",async(req,res) => {
         newUser._v = undefined;
 
         res.status(201).send({data: newUser, message:'User created successfully'})
-
-    } catch (error) {
-        res.status(500).send({message: 'Internal server error' });
-    }
 })
 
 module.exports = router;
