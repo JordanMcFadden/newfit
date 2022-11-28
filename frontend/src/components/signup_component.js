@@ -13,19 +13,31 @@ const Signup  = () =>
     password:"",
   });
 
+
   const handleChange = ({currentTarget: input}) => {
     setData({...data, [input.name]: input.value});
   };
+  const [error, setError] = useState("");
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = "http://localhost:4000/api/users";
-      const {data: res} = await axios.post(url,data);
+      const {data: res} = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
+			window.location = "/sign-in";
     } catch (error) {
-      
-    }
-  }
+      if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			  }
+		}
+  };
+
 
   return (
     <div className={styles.signup_container}>
@@ -76,6 +88,7 @@ const Signup  = () =>
             required
             className={styles.input}
           />
+          {error && <div className={styles.error_msg}>{error}</div>}
           <button type="submit" className={styles.pink_btn}>
             Sign up
           </button>
