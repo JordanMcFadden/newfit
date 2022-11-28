@@ -2,24 +2,36 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/signin.module.css';
+import axios from 'axios';
 
 const Signin  = () =>
 {
-  const [data, setData] = useState
-  ({
-    email:"",
-    password:""
-  });
+  const [data, setData] = useState({ email: "", password: "" });
+	const [error, setError] = useState("");
 
-  const handleChange=({ currentTarget: input}) => 
-  {
-    setData({...data, [input.name]: input.value})
-  }
+	const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
 
-  const handleSubmit = (e) =>
-  {
-      e.preventDefault();
-  }
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const url = "http://localhost:4000/api/sign-in";
+			const { data: res } = await axios.post(url, data);
+			localStorage.setItem("token", res.data);
+			window.location = "/";
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
+	};
+
+  
   return (
     <div className={styles.signin_container}>
       <div className={styles.signin_form_container}>
@@ -52,6 +64,7 @@ const Signin  = () =>
         <div className={styles.right}>
           <h1>New Here?</h1>
             <Link to ="/sign-up">
+            {error && <div className={styles.error_msg}>{error}</div>}
               <button type = 'button' className = {styles.white_btn}>
                 Sign Up
               </button>

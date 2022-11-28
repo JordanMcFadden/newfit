@@ -19,17 +19,16 @@ userSchema.methods.generateAuthToken = function() {
     return token
 };
 
-//could be user instead of data
-const validate = (user) => {
+const User = mongoose.model('user', userSchema);
+
+const validate = (data) => {
     const schema = Joi.object({
         firstName: Joi.string().required().label('First Name'),
         lastName: Joi.string().required().label('Last Name'),
         email: Joi.string().required().label('Email'),
         password: passwordComplexity().required(),
     });
-    return schema.validate(user);
+    return schema.validate(data);
 }
-
-const User = mongoose.model("user", userSchema);
 
 module.exports = {User, validate};
