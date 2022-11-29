@@ -19,7 +19,7 @@ app.use(cors());
 
 //routes
 app.use('/api/users', userRoutes);
-app.use('/api/sign-in', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/exercises', exerciseRoutes);
 
 //server connection

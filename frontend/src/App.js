@@ -19,7 +19,6 @@ function App() {
               <Route path="/get-started" element={<Personalize />} />
               <Route path="/sign-in" element={<Signin />}/>
               <Route path="/sign-up" element={<Signup />}/>
-              <Route path= '/' element = {<Navigate replace to = "/sign-in"/>} />
             </Routes>
           </div>
         </div>
