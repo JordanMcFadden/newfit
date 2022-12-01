@@ -6,14 +6,12 @@ import Signup from './components/signup_component';
 import Workout from './components/home_component';
 import Exercises from './components/exercise_component';
 import Records from './components/records_component';
-import Topbar from './components/topbar_component';
 
 
 function App() {
   return (
       <div className = "App">
         <div className="auth-wrapper">
-           <Topbar /> 
           <div className="auth-inner">
             <Routes>
               <Route exact path ="/" element={<Workout />} />

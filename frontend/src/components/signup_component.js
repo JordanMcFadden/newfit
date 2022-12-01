@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/signup.module.css';
 import axios from 'axios';
+import Topbar from './topbar_component';
+
 
 const Signup  = () =>
 {
@@ -40,6 +42,7 @@ const Signup  = () =>
 
 
   return (
+    <div><Topbar/>
     <div className={styles.signup_container}>
       <div className={styles.signup_form_container}>
         <div className={styles.left}>
@@ -96,7 +99,7 @@ const Signup  = () =>
         </div>
       </div>
     </div>
-
+  </div>
   )
 };
 
