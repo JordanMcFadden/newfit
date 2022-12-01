@@ -4,12 +4,6 @@ import styles from '../styles/topbar.module.css';
 
 export default function Topbar(props) {
 
-  let isauth = false;
-
-  if (sessionStorage.getItem('userData')) {
-    isauth = true;
-  }
-
 
   return (
     <>
@@ -20,27 +14,14 @@ export default function Topbar(props) {
         </div>
         <div className={styles.topbar_social}>
 
-          {isauth === true ? (
-            <>
-              <Link className={styles.topbar_links} to="/userprofile">
-                My Account
-              </Link>
-              <Link onClick={() => window.location.reload(false)} className={styles.topbar_links} to="/sign-out">
-                Logout
-              </Link>
-            </>
-
-          ) : (
+          
 
             <>
               <Link className={styles.topbar_links} to="/sign-in">
-                Login
-              </Link>
-              <Link className={styles.topbar_links} to="/sign-up">
-                Register
+                Logout
               </Link>
             </>
-          )}
+       
 
           <a className="links" href="https://www.facebook.com/" target="">
             <img rel="noreferrer" src="../images/fb.png" alt="" />
@@ -59,23 +40,18 @@ export default function Topbar(props) {
           <div className={styles.navbar_groups}>
             <ul className={styles.navbar_groups}>
               <li>
-                  <Link className={styles.navbar_links} to="/workouts">
+                  <Link className={styles.navbar_links} to="/">
                     Create Workout
                   </Link>
               </li>
               <li>
-              <Link className={styles.navbar_links} to="/chest">
+              <Link className={styles.navbar_links} to="/exercises">
                     Your Exercises
                   </Link>
               </li>
               <li>
                   <Link className={styles.navbar_links} to="/records">
                     Records
-                  </Link>
-              </li>
-              <li>
-                  <Link className={styles.navbar_links} to="/">
-                    Home
                   </Link>
               </li>
             </ul>

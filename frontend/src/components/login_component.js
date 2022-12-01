@@ -32,7 +32,7 @@ const Signin  = () =>
 	};
 
   
-  return (
+return (
     <div className={styles.signin_container}>
       <div className={styles.signin_form_container}>
         <div className={styles.left}>
@@ -56,6 +56,7 @@ const Signin  = () =>
               required
               className={styles.input}
             />
+            {error && <div className={styles.error_msg}>{error}</div>}
             <button type="submit" className={styles.pink_btn}>
               Sign in
             </button>
@@ -64,7 +65,6 @@ const Signin  = () =>
         <div className={styles.right}>
           <h1>New Here?</h1>
             <Link to ="/sign-up">
-            {error && <div className={styles.error_msg}>{error}</div>}
               <button type = 'button' className = {styles.white_btn}>
                 Sign Up
               </button>
@@ -72,7 +72,6 @@ const Signin  = () =>
         </div>
       </div>
     </div>
-
   )
 };
 
