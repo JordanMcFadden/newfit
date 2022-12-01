@@ -18,7 +18,10 @@ export default function Topbar(props) {
 
             <>
               <Link className={styles.topbar_links} to="/sign-in">
-                Logout
+                Login
+              </Link>
+              <Link className={styles.topbar_links} to="/sign-up">
+                Register
               </Link>
             </>
        
