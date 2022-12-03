@@ -6,6 +6,8 @@ export default function Topbar(props) {
 
 
   return (
+     //Creating template for topbar and adding links to social media and logos
+     //Then add templlate for navbar to navigate between pages
     <>
       <div className={styles.topbar}>
         <div className={styles.topbar_phone}>
@@ -15,14 +17,12 @@ export default function Topbar(props) {
         <div className={styles.topbar_social}>
 
           
-
             <>
               <Link className={styles.topbar_links} to="/sign-in">
                 Logout
               </Link>
             </>
        
-
           <a className="links" href="https://www.facebook.com/" target="">
             <img rel="noreferrer" src="../images/fb.png" alt="" />
           </a>
@@ -35,6 +35,7 @@ export default function Topbar(props) {
         </div>
       </div>
 
+      
       <nav className={styles.navbar}>
         <div className={styles.navbar_logo}>FitForYou<i className="fab fa-foursquare"></i>
           <div className={styles.navbar_groups}>

@@ -9,6 +9,7 @@ import Records from './components/records_component';
 
 
 function App() {
+  //Has routes to each page
   return (
       <div className = "App">
         <div className="auth-wrapper">

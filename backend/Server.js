@@ -9,7 +9,6 @@ const exerciseRoutes = require('./routes/exercise');
 const app = express();
 
 
-
 //database connection
 connection();
 

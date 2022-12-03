@@ -5,6 +5,8 @@ export default function Topbar(props) {
 
 
     return (
+      //Creating template for topbar which has links for login and signup
+      //As well as links to social media 
       <>
         <div className={styles.topbar}>
           <div className={styles.topbar_phone}>

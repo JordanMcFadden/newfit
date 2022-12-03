@@ -8,6 +8,7 @@ import Topbar from './topbar_component';
 
 const Signup  = () =>
 {
+  //Adding state for registration data
   const[data, setData] = useState({
     firstName:"",
     lastName:"",
@@ -15,16 +16,18 @@ const Signup  = () =>
     password:"",
   });
 
-
+  //Handling changes in input
   const handleChange = ({currentTarget: input}) => {
     setData({...data, [input.name]: input.value});
   };
+  //Addding state for errors
   const [error, setError] = useState("");
 
-
+  //Handling submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      //Connecting to api
       const url = "http://localhost:4000/api/users";
       const {data: res} = await axios.post(url, data);
       localStorage.setItem("token", res.data);
@@ -42,6 +45,7 @@ const Signup  = () =>
 
 
   return (
+    //Adding topbar and html for signup has a container and a form with inputs
     <div><Topbar/>
     <div className={styles.signup_container}>
       <div className={styles.signup_form_container}>

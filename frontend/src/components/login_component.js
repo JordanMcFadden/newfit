@@ -7,16 +7,21 @@ import Topbar from './topbar_component';
 
 const Signin  = () =>
 {
+  //Creating a state for email and password
   const [data, setData] = useState({ email: "", password: "" });
+  //Creating a state for error message 
 	const [error, setError] = useState("");
 
+  //Handling the change in input
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
 	};
 
+  //Handling the submission of form
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
+      //Connecting api
 			const url = "http://localhost:4000/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
@@ -34,6 +39,8 @@ const Signin  = () =>
 
 
 return (
+  //Adding topbar and Container for form then creating input for 
+  //form and button to change between login and registration
   <div><Topbar/>  
     <div className={styles.signin_container}>
       <div className={styles.signin_form_container}>

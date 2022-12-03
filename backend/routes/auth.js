@@ -3,7 +3,8 @@ const { User } = require('../models/user_model');
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
 
-
+//Creating post operation that connects to frontend login 
+//shows error messages for login and creates tokens for passwords
 router.post("/", async(req, res) => {
     try {
 		const { error } = validate(req.body);

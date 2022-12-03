@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//Connecting to mongoose and declaring parameters
 module.exports = async () => {
     const connectionParams = {
         useNewUrlParser: true,

@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+//Creating tokens and error messages (only seen on Postman)
 module.exports = (req, res, next) => {
     const token = req.header('x-auth-token');
     if(!token) {
